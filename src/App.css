@@ -7,6 +7,12 @@
   padding: 0px;
 }
 
+h4 {
+  font-size: inherit;
+  font-weight: 500;
+  color: #000000;
+}
+
 hr {
   width: 100%;
   margin: 0px;
