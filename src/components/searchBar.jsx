@@ -28,7 +28,7 @@ const SearchBar = () => {
           setHoveredItem,
           isMouseOver,
           setUserResults,
-          setShowUsers,
+          setShowUsers
         );
       } else if (showComments && !commentResults) {
         fetchSearchResults(
@@ -39,7 +39,7 @@ const SearchBar = () => {
           setHoveredItem,
           isMouseOver,
           setUserResults,
-          setShowUsers,
+          setShowUsers
         );
       }
     } else {
@@ -66,7 +66,7 @@ const SearchBar = () => {
         setHoveredItem,
         isMouseOver,
         setUserResults,
-        setShowUsers,
+        setShowUsers
       );
     } else if (!showComments && !postResults && debouncedSearchTerm) {
       fetchSearchResults(
@@ -77,7 +77,7 @@ const SearchBar = () => {
         setHoveredItem,
         isMouseOver,
         setUserResults,
-        setShowUsers,
+        setShowUsers
       );
     }
   }, [showComments]);
@@ -105,37 +105,39 @@ const SearchBar = () => {
   };
 
   return (
-    <div className='container'>
-      <div className='container1'>
-        <div className='container2'>
-          <div className='searchbar'>
-            <div className='search-handler'>
-              <span className='search-handler-leftside'></span>
-              <input
-                type='text'
-                placeholder='Search..'
-                className='search-input'
-                value={searchTerm}
-                onChange={handleInputChange}
-              />
-              <span className='search-handler-rightside'>
-                {loading && <div className='spinner'></div>}
-              </span>
-              {!loading && searchTerm.length > 0 && (
-                <SearchResults
-                  searchTerm={searchTerm}
-                  postResults={postResults}
-                  commentResults={commentResults}
-                  userResults={userResults}
-                  showComments={showComments}
-                  showUsers={showUsers}
-                  setShowComments={handleToggleComments}
-                  setShowUsers={setShowUsers}
-                  hoveredItem={hoveredItem}
-                  setHoveredItem={setHoveredItem}
-                  setIsMouseOver={setIsMouseOver}
+    <div className='modal'>
+      <div className='container'>
+        <div className='container1'>
+          <div className='container2'>
+            <div className='searchbar'>
+              <div className='search-handler'>
+                <span className='search-handler-leftside'></span>
+                <input
+                  type='text'
+                  placeholder='Search..'
+                  className='search-input'
+                  value={searchTerm}
+                  onChange={handleInputChange}
                 />
-              )}
+                <span className='search-handler-rightside'>
+                  {loading && <div className='spinner'></div>}
+                </span>
+                {!loading && searchTerm.length > 0 && (
+                  <SearchResults
+                    searchTerm={searchTerm}
+                    postResults={postResults}
+                    commentResults={commentResults}
+                    userResults={userResults}
+                    showComments={showComments}
+                    showUsers={showUsers}
+                    setShowComments={handleToggleComments}
+                    setShowUsers={setShowUsers}
+                    hoveredItem={hoveredItem}
+                    setHoveredItem={setHoveredItem}
+                    setIsMouseOver={setIsMouseOver}
+                  />
+                )}
+              </div>
             </div>
           </div>
         </div>
